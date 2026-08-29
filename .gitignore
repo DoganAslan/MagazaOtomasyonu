@@ -5,3 +5,6 @@ work/
 *.csproj.user
 *.user
 *.suo
+*.bak
+*.mdf
+*.ldf
