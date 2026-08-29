@@ -13,6 +13,7 @@ namespace MagazaOtomasyonu.Forms
         public UserForm()
         {
             InitializeComponent();
+            UiTheme.Apply(this);
             LoadRoles();
             LoadUsers();
             ClearForm();

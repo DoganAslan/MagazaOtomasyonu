@@ -17,6 +17,7 @@ namespace MagazaOtomasyonu.Forms
         public SalesForm()
         {
             InitializeComponent();
+            UiTheme.Apply(this);
             InitializeCart();
             LoadCustomers();
             LoadPaymentTypes();

@@ -15,6 +15,12 @@ namespace MagazaOtomasyonu.Forms
         public MainForm()
         {
             InitializeComponent();
+            UiTheme.Apply(this);
+            lblSubtitle.ForeColor = UiTheme.TextSecondary;
+            lblProductManagement.ForeColor = UiTheme.TextSecondary;
+            lblSalesManagement.ForeColor = UiTheme.TextSecondary;
+            lblManagement.ForeColor = UiTheme.TextSecondary;
+            lblCurrentUser.ForeColor = UiTheme.TextSecondary;
             ShowCurrentUser();
             ApplyPermissions();
         }

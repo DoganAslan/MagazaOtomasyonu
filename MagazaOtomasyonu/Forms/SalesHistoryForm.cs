@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using MagazaOtomasyonu.DataAccess;
+using MagazaOtomasyonu.Helpers;
 using Microsoft.Data.SqlClient;
 
 
@@ -17,6 +18,7 @@ namespace MagazaOtomasyonu.Forms
         public SalesHistoryForm()
         {
             InitializeComponent();
+            UiTheme.Apply(this);
             LoadSales();
             dgvSaleDetails.DataSource = null;
         }

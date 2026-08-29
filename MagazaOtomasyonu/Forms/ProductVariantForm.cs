@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using Microsoft.Data.SqlClient;
 using MagazaOtomasyonu.DataAccess;
+using MagazaOtomasyonu.Helpers;
 
 namespace MagazaOtomasyonu.Forms
 {
@@ -17,6 +18,7 @@ namespace MagazaOtomasyonu.Forms
         public ProductVariantForm()
         {
             InitializeComponent();
+            UiTheme.Apply(this);
 
             LoadProducts();
             LoadColors();

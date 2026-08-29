@@ -17,6 +17,7 @@ namespace MagazaOtomasyonu.Forms
         public LoginForm()
         {
             InitializeComponent();
+            UiTheme.Apply(this);
         }
         private bool VerifyPassword(string password, string storedPassword)
         {

@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using MagazaOtomasyonu.DataAccess;
+using MagazaOtomasyonu.Helpers;
 using Microsoft.Data.SqlClient;
 
 namespace MagazaOtomasyonu.Forms
@@ -15,6 +16,7 @@ namespace MagazaOtomasyonu.Forms
         public CategoryForm()
         {
             InitializeComponent();
+            UiTheme.Apply(this);
             LoadCategories();
         }
 

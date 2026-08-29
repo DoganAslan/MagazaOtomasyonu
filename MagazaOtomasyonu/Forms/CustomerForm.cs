@@ -7,6 +7,7 @@ using System.Security.AccessControl;
 using System.Text;
 using System.Windows.Forms;
 using MagazaOtomasyonu.DataAccess;
+using MagazaOtomasyonu.Helpers;
 using Microsoft.Data.SqlClient;
 
 namespace MagazaOtomasyonu.Forms
@@ -17,6 +18,7 @@ namespace MagazaOtomasyonu.Forms
         public CustomerForm()
         {
             InitializeComponent();
+            UiTheme.Apply(this);
             LoadCustomers();
         }
         private void LoadCustomers()
