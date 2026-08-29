@@ -120,6 +120,9 @@ namespace MagazaOtomasyonu.Forms
 
             dgvVariants.DataSource = table;
 
+            if (dgvVariants.Columns["VariantId"] is DataGridViewColumn variantIdColumn)
+                variantIdColumn.Visible = false;
+
             if (dgvVariants.Columns["ProductId"] is DataGridViewColumn productIdColumn)
                 productIdColumn.Visible = false;
 

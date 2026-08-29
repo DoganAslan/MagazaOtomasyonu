@@ -28,6 +28,10 @@ namespace MagazaOtomasyonu.Forms
             DataTable table = new DataTable();
             adapter.Fill(table);
             dgvCategories.DataSource = table;
+            if (dgvCategories.Columns["CategoryId"] is DataGridViewColumn categoryIdColumn)
+            {
+                categoryIdColumn.Visible = false;
+            }
         }
 
         private void btnAdd_Click(object sender, EventArgs e)

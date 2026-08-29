@@ -23,7 +23,7 @@ namespace MagazaOtomasyonu.Forms
             dgvReport.ReadOnly = true;
             dgvReport.AllowUserToAddRows = false;
             dgvReport.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvReport.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvReport.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
         }
         private void LoadSummary()
         {

@@ -1,4 +1,5 @@
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 
 namespace MagazaOtomasyonu.Helpers
@@ -22,12 +23,19 @@ namespace MagazaOtomasyonu.Helpers
 
         private static readonly Color Secondary = ColorTranslator.FromHtml("#F3F4F6");
         private static readonly Color SecondaryHover = ColorTranslator.FromHtml("#E5E7EB");
+        private static Icon? applicationIcon;
 
         public static void Apply(Form form)
         {
             form.BackColor = Background;
             form.Font = new Font("Segoe UI", 10F);
             form.StartPosition = FormStartPosition.CenterScreen;
+
+            Icon? icon = GetApplicationIcon();
+            if (icon != null)
+            {
+                form.Icon = (Icon)icon.Clone();
+            }
 
             foreach (Control control in form.Controls)
             {
@@ -113,7 +121,7 @@ namespace MagazaOtomasyonu.Helpers
         {
             comboBox.BackColor = Surface;
             comboBox.ForeColor = TextPrimary;
-            comboBox.FlatStyle = FlatStyle.Flat;
+            comboBox.FlatStyle = FlatStyle.Standard;
             comboBox.Font = new Font("Segoe UI", 10F);
             comboBox.MinimumSize = new Size(comboBox.MinimumSize.Width, 32);
             if (comboBox.Height < 32)
@@ -149,6 +157,9 @@ namespace MagazaOtomasyonu.Helpers
             grid.BackgroundColor = Surface;
             grid.BorderStyle = BorderStyle.None;
             grid.RowHeadersVisible = false;
+            grid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            grid.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
+            grid.ScrollBars = ScrollBars.Both;
             grid.ColumnHeadersHeight = 40;
             grid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             grid.RowTemplate.Height = 38;
@@ -159,12 +170,14 @@ namespace MagazaOtomasyonu.Helpers
             grid.DefaultCellStyle.ForeColor = TextPrimary;
             grid.DefaultCellStyle.Font = new Font("Segoe UI", 10F);
             grid.DefaultCellStyle.Padding = new Padding(8, 0, 8, 0);
+            grid.DefaultCellStyle.WrapMode = DataGridViewTriState.False;
             grid.DefaultCellStyle.SelectionBackColor = LightSelection;
             grid.DefaultCellStyle.SelectionForeColor = TextPrimary;
             grid.ColumnHeadersDefaultCellStyle.BackColor = ColorTranslator.FromHtml("#F9FAFB");
             grid.ColumnHeadersDefaultCellStyle.ForeColor = TextPrimary;
             grid.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI Semibold", 10F);
             grid.ColumnHeadersDefaultCellStyle.Padding = new Padding(8, 0, 8, 0);
+            grid.ColumnHeadersDefaultCellStyle.WrapMode = DataGridViewTriState.False;
             grid.ColumnHeadersDefaultCellStyle.SelectionBackColor = ColorTranslator.FromHtml("#F9FAFB");
             grid.ColumnHeadersDefaultCellStyle.SelectionForeColor = TextPrimary;
             grid.AlternatingRowsDefaultCellStyle.BackColor = ColorTranslator.FromHtml("#F9FAFB");
@@ -218,6 +231,23 @@ namespace MagazaOtomasyonu.Helpers
             {
                 ApplyControl(child);
             }
+        }
+
+        private static Icon? GetApplicationIcon()
+        {
+            if (applicationIcon != null)
+            {
+                return applicationIcon;
+            }
+
+            string iconPath = Path.Combine(AppContext.BaseDirectory, "Assets", "MagazaOtomasyonu.ico");
+            if (!File.Exists(iconPath))
+            {
+                return null;
+            }
+
+            applicationIcon = new Icon(iconPath);
+            return applicationIcon;
         }
 
         private static bool IsMenuButton(string name)

@@ -29,6 +29,10 @@ namespace MagazaOtomasyonu.Forms
             DataTable table = new DataTable();
             adapter.Fill(table);
             dgvSizes.DataSource = table;
+            if (dgvSizes.Columns["SizeId"] is DataGridViewColumn sizeIdColumn)
+            {
+                sizeIdColumn.Visible = false;
+            }
         }
 
 

@@ -101,6 +101,7 @@ namespace MagazaOtomasyonu.Forms
             txtPassword.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             txtPassword.Location = new Point(30, 216);
             txtPassword.Name = "txtPassword";
+            txtPassword.PasswordChar = '*';
             txtPassword.Size = new Size(360, 32);
             txtPassword.TabIndex = 1;
             // 

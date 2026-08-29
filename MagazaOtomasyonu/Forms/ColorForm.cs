@@ -28,6 +28,10 @@ namespace MagazaOtomasyonu.Forms
             DataTable table = new DataTable();
             adapter.Fill(table);
             dgvColors.DataSource = table;
+            if (dgvColors.Columns["ColorId"] is DataGridViewColumn colorIdColumn)
+            {
+                colorIdColumn.Visible = false;
+            }
         }
 
         private void btnAdd_Click(object sender, EventArgs e)

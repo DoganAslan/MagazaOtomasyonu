@@ -81,6 +81,18 @@ namespace MagazaOtomasyonu.Forms
             DataTable table = new DataTable();
             adapter.Fill(table);
             dgvProducts.DataSource = table;
+            if (dgvProducts.Columns["ProductId"] is DataGridViewColumn productIdColumn)
+            {
+                productIdColumn.Visible = false;
+            }
+            if (dgvProducts.Columns["CategoryId"] is DataGridViewColumn categoryIdColumn)
+            {
+                categoryIdColumn.Visible = false;
+            }
+            if (dgvProducts.Columns["BrandId"] is DataGridViewColumn brandIdColumn)
+            {
+                brandIdColumn.Visible = false;
+            }
         }
 
         private void btnAdd_Click(object sender, EventArgs e)

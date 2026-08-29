@@ -30,6 +30,10 @@ namespace MagazaOtomasyonu.Forms
             DataTable table = new DataTable();
             adapter.Fill(table);
             dgvBrands.DataSource = table;
+            if (dgvBrands.Columns["BrandId"] is DataGridViewColumn brandIdColumn)
+            {
+                brandIdColumn.Visible = false;
+            }
         }
 
 

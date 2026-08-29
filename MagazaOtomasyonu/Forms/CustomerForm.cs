@@ -30,6 +30,10 @@ namespace MagazaOtomasyonu.Forms
             DataTable table = new DataTable();
             adapter.Fill(table);
             dgvCustomers.DataSource = table;
+            if (dgvCustomers.Columns["CustomerId"] is DataGridViewColumn customerIdColumn)
+            {
+                customerIdColumn.Visible = false;
+            }
 
         }
         private void ClearForm()

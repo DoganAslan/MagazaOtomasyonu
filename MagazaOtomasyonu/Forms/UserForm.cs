@@ -37,6 +37,10 @@ namespace MagazaOtomasyonu.Forms
             DataTable table = new DataTable();
             adapter.Fill(table);
             dgvUsers.DataSource = table;
+            if (dgvUsers.Columns["UserId"] is DataGridViewColumn userIdColumn)
+            {
+                userIdColumn.Visible = false;
+            }
             if (dgvUsers.Columns["RoleId"] is DataGridViewColumn roleIdColumn)
             {
                 roleIdColumn.Visible = false;

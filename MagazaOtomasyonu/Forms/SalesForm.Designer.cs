@@ -29,31 +29,31 @@ namespace MagazaOtomasyonu.Forms
         private void InitializeComponent()
         {
             pnlHeader = new Panel();
-            lblTitle = new Label();
             lblDescription = new Label();
+            lblTitle = new Label();
             pnlEditor = new Panel();
-            lblSaleInfo = new Label();
-            pnlCart = new Panel();
-            lblCartTitle = new Label();
-            label1 = new Label();
-            cmbCustomer = new ComboBox();
+            btnAddToCart = new Button();
+            lblPrice = new Label();
+            lblStock = new Label();
+            txtQuantity = new TextBox();
+            label4 = new Label();
+            cmbVariant = new ComboBox();
+            label3 = new Label();
             cmbPaymentType = new ComboBox();
             label2 = new Label();
-            label3 = new Label();
-            label4 = new Label();
-            txtQuantity = new TextBox();
-            lblStock = new Label();
-            lblPrice = new Label();
-            lblTotal = new Label();
+            cmbCustomer = new ComboBox();
+            label1 = new Label();
+            lblSaleInfo = new Label();
+            pnlCart = new Panel();
             btnCompleteSale = new Button();
-            cmbVariant = new ComboBox();
-            dgvCart = new DataGridView();
+            lblTotal = new Label();
             btnRemoveFromCart = new Button();
-            btnAddToCart = new Button();
-            ((System.ComponentModel.ISupportInitialize)dgvCart).BeginInit();
+            dgvCart = new DataGridView();
+            lblCartTitle = new Label();
             pnlHeader.SuspendLayout();
             pnlEditor.SuspendLayout();
             pnlCart.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvCart).BeginInit();
             SuspendLayout();
             // 
             // pnlHeader
@@ -65,7 +65,15 @@ namespace MagazaOtomasyonu.Forms
             pnlHeader.Name = "pnlHeader";
             pnlHeader.Size = new Size(1132, 82);
             pnlHeader.TabIndex = 0;
-            pnlHeader.TabStop = false;
+            // 
+            // lblDescription
+            // 
+            lblDescription.AutoSize = true;
+            lblDescription.Location = new Point(22, 51);
+            lblDescription.Name = "lblDescription";
+            lblDescription.Size = new Size(322, 20);
+            lblDescription.TabIndex = 1;
+            lblDescription.Text = "Müşteri seçin, ürün ekleyin ve satışı tamamlayın.";
             // 
             // lblTitle
             // 
@@ -73,24 +81,13 @@ namespace MagazaOtomasyonu.Forms
             lblTitle.Font = new Font("Segoe UI Semibold", 20F, FontStyle.Bold);
             lblTitle.Location = new Point(20, 12);
             lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(215, 37);
+            lblTitle.Size = new Size(233, 46);
             lblTitle.TabIndex = 0;
-            lblTitle.TabStop = false;
             lblTitle.Text = "Satış İşlemleri";
-            // 
-            // lblDescription
-            // 
-            lblDescription.AutoSize = true;
-            lblDescription.Location = new Point(22, 51);
-            lblDescription.Name = "lblDescription";
-            lblDescription.Size = new Size(371, 20);
-            lblDescription.TabIndex = 1;
-            lblDescription.TabStop = false;
-            lblDescription.Text = "Müşteri seçin, ürün ekleyin ve satışı tamamlayın.";
             // 
             // pnlEditor
             // 
-            pnlEditor.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Bottom;
+            pnlEditor.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             pnlEditor.Controls.Add(btnAddToCart);
             pnlEditor.Controls.Add(lblPrice);
             pnlEditor.Controls.Add(lblStock);
@@ -107,68 +104,77 @@ namespace MagazaOtomasyonu.Forms
             pnlEditor.Name = "pnlEditor";
             pnlEditor.Size = new Size(360, 534);
             pnlEditor.TabIndex = 1;
-            pnlEditor.TabStop = false;
             // 
-            // lblSaleInfo
+            // btnAddToCart
             // 
-            lblSaleInfo.AutoSize = true;
-            lblSaleInfo.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold);
-            lblSaleInfo.Location = new Point(16, 14);
-            lblSaleInfo.Name = "lblSaleInfo";
-            lblSaleInfo.Size = new Size(159, 30);
-            lblSaleInfo.TabIndex = 10;
-            lblSaleInfo.TabStop = false;
-            lblSaleInfo.Text = "Satış Bilgileri";
+            btnAddToCart.Location = new Point(20, 385);
+            btnAddToCart.Name = "btnAddToCart";
+            btnAddToCart.Size = new Size(320, 44);
+            btnAddToCart.TabIndex = 4;
+            btnAddToCart.Text = "Sepete Ekle";
+            btnAddToCart.UseVisualStyleBackColor = true;
+            btnAddToCart.Click += btnAddToCart_Click;
             // 
-            // pnlCart
+            // lblPrice
             // 
-            pnlCart.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Bottom;
-            pnlCart.Controls.Add(btnCompleteSale);
-            pnlCart.Controls.Add(lblTotal);
-            pnlCart.Controls.Add(btnRemoveFromCart);
-            pnlCart.Controls.Add(dgvCart);
-            pnlCart.Controls.Add(lblCartTitle);
-            pnlCart.Location = new Point(404, 122);
-            pnlCart.Name = "pnlCart";
-            pnlCart.Size = new Size(752, 534);
-            pnlCart.TabIndex = 2;
-            pnlCart.TabStop = false;
+            lblPrice.AutoSize = true;
+            lblPrice.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
+            lblPrice.Location = new Point(180, 335);
+            lblPrice.Name = "lblPrice";
+            lblPrice.Size = new Size(63, 23);
+            lblPrice.TabIndex = 16;
+            lblPrice.Text = "Fiyat: -";
             // 
-            // lblCartTitle
+            // lblStock
             // 
-            lblCartTitle.AutoSize = true;
-            lblCartTitle.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold);
-            lblCartTitle.Location = new Point(16, 14);
-            lblCartTitle.Name = "lblCartTitle";
-            lblCartTitle.Size = new Size(69, 30);
-            lblCartTitle.TabIndex = 10;
-            lblCartTitle.TabStop = false;
-            lblCartTitle.Text = "Sepet";
+            lblStock.AutoSize = true;
+            lblStock.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
+            lblStock.Location = new Point(20, 335);
+            lblStock.Name = "lblStock";
+            lblStock.Size = new Size(61, 23);
+            lblStock.TabIndex = 15;
+            lblStock.Text = "Stok: -";
             // 
-            // label1
+            // txtQuantity
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(20, 55);
-            label1.Name = "label1";
-            label1.Size = new Size(61, 20);
-            label1.TabIndex = 11;
-            label1.TabStop = false;
-            label1.Text = "Müşteri:";
+            txtQuantity.Location = new Point(20, 290);
+            txtQuantity.Name = "txtQuantity";
+            txtQuantity.Size = new Size(320, 27);
+            txtQuantity.TabIndex = 3;
             // 
-            // cmbCustomer
+            // label4
             // 
-            cmbCustomer.FormattingEnabled = true;
-            cmbCustomer.Location = new Point(20, 80);
-            cmbCustomer.Name = "cmbCustomer";
-            cmbCustomer.Size = new Size(320, 32);
-            cmbCustomer.TabIndex = 0;
+            label4.AutoSize = true;
+            label4.Location = new Point(20, 265);
+            label4.Name = "label4";
+            label4.Size = new Size(44, 20);
+            label4.TabIndex = 14;
+            label4.Text = "Adet:";
+            // 
+            // cmbVariant
+            // 
+            cmbVariant.FormattingEnabled = true;
+            cmbVariant.Location = new Point(20, 220);
+            cmbVariant.Name = "cmbVariant";
+            cmbVariant.Size = new Size(320, 28);
+            cmbVariant.TabIndex = 2;
+            cmbVariant.SelectedIndexChanged += cmbVariant_SelectedIndexChanged_1;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(20, 195);
+            label3.Name = "label3";
+            label3.Size = new Size(43, 20);
+            label3.TabIndex = 13;
+            label3.Text = "Ürün:";
             // 
             // cmbPaymentType
             // 
             cmbPaymentType.FormattingEnabled = true;
             cmbPaymentType.Location = new Point(20, 150);
             cmbPaymentType.Name = "cmbPaymentType";
-            cmbPaymentType.Size = new Size(320, 32);
+            cmbPaymentType.Size = new Size(320, 28);
             cmbPaymentType.TabIndex = 1;
             // 
             // label2
@@ -178,68 +184,47 @@ namespace MagazaOtomasyonu.Forms
             label2.Name = "label2";
             label2.Size = new Size(94, 20);
             label2.TabIndex = 12;
-            label2.TabStop = false;
             label2.Text = "Ödeme Türü:";
             // 
-            // label3
+            // cmbCustomer
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(20, 195);
-            label3.Name = "label3";
-            label3.Size = new Size(43, 20);
-            label3.TabIndex = 13;
-            label3.TabStop = false;
-            label3.Text = "Ürün:";
+            cmbCustomer.FormattingEnabled = true;
+            cmbCustomer.Location = new Point(20, 80);
+            cmbCustomer.Name = "cmbCustomer";
+            cmbCustomer.Size = new Size(320, 28);
+            cmbCustomer.TabIndex = 0;
             // 
-            // label4
+            // label1
             // 
-            label4.AutoSize = true;
-            label4.Location = new Point(20, 265);
-            label4.Name = "label4";
-            label4.Size = new Size(44, 20);
-            label4.TabIndex = 14;
-            label4.TabStop = false;
-            label4.Text = "Adet:";
+            label1.AutoSize = true;
+            label1.Location = new Point(20, 55);
+            label1.Name = "label1";
+            label1.Size = new Size(61, 20);
+            label1.TabIndex = 11;
+            label1.Text = "Müşteri:";
             // 
-            // txtQuantity
+            // lblSaleInfo
             // 
-            txtQuantity.Location = new Point(20, 290);
-            txtQuantity.Name = "txtQuantity";
-            txtQuantity.Size = new Size(320, 32);
-            txtQuantity.TabIndex = 3;
+            lblSaleInfo.AutoSize = true;
+            lblSaleInfo.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold);
+            lblSaleInfo.Location = new Point(16, 14);
+            lblSaleInfo.Name = "lblSaleInfo";
+            lblSaleInfo.Size = new Size(141, 30);
+            lblSaleInfo.TabIndex = 10;
+            lblSaleInfo.Text = "Satış Bilgileri";
             // 
-            // lblStock
+            // pnlCart
             // 
-            lblStock.AutoSize = true;
-            lblStock.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
-            lblStock.Location = new Point(20, 335);
-            lblStock.Name = "lblStock";
-            lblStock.Size = new Size(51, 20);
-            lblStock.TabIndex = 15;
-            lblStock.TabStop = false;
-            lblStock.Text = "Stok: -";
-            // 
-            // lblPrice
-            // 
-            lblPrice.AutoSize = true;
-            lblPrice.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
-            lblPrice.Location = new Point(180, 335);
-            lblPrice.Name = "lblPrice";
-            lblPrice.Size = new Size(53, 20);
-            lblPrice.TabIndex = 16;
-            lblPrice.TabStop = false;
-            lblPrice.Text = "Fiyat: -";
-            // 
-            // lblTotal
-            // 
-            lblTotal.AutoSize = true;
-            lblTotal.Font = new Font("Segoe UI Semibold", 16F, FontStyle.Bold);
-            lblTotal.Location = new Point(390, 452);
-            lblTotal.Name = "lblTotal";
-            lblTotal.Size = new Size(112, 20);
-            lblTotal.TabIndex = 11;
-            lblTotal.TabStop = false;
-            lblTotal.Text = "Toplam: 0,00 TL";
+            pnlCart.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            pnlCart.Controls.Add(btnCompleteSale);
+            pnlCart.Controls.Add(lblTotal);
+            pnlCart.Controls.Add(btnRemoveFromCart);
+            pnlCart.Controls.Add(dgvCart);
+            pnlCart.Controls.Add(lblCartTitle);
+            pnlCart.Location = new Point(404, 122);
+            pnlCart.Name = "pnlCart";
+            pnlCart.Size = new Size(752, 534);
+            pnlCart.TabIndex = 2;
             // 
             // btnCompleteSale
             // 
@@ -252,25 +237,15 @@ namespace MagazaOtomasyonu.Forms
             btnCompleteSale.UseVisualStyleBackColor = true;
             btnCompleteSale.Click += btnCompleteSale_Click;
             // 
-            // cmbVariant
+            // lblTotal
             // 
-            cmbVariant.FormattingEnabled = true;
-            cmbVariant.Location = new Point(20, 220);
-            cmbVariant.Name = "cmbVariant";
-            cmbVariant.Size = new Size(320, 32);
-            cmbVariant.TabIndex = 2;
-            cmbVariant.SelectedIndexChanged += cmbVariant_SelectedIndexChanged_1;
-            // 
-            // dgvCart
-            // 
-            dgvCart.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Bottom;
-            dgvCart.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvCart.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvCart.Location = new Point(16, 55);
-            dgvCart.Name = "dgvCart";
-            dgvCart.RowHeadersWidth = 51;
-            dgvCart.Size = new Size(720, 370);
-            dgvCart.TabIndex = 5;
+            lblTotal.AutoSize = true;
+            lblTotal.Font = new Font("Segoe UI Semibold", 16F, FontStyle.Bold);
+            lblTotal.Location = new Point(343, 450);
+            lblTotal.Name = "lblTotal";
+            lblTotal.Size = new Size(207, 37);
+            lblTotal.TabIndex = 11;
+            lblTotal.Text = "Toplam: 0,00 TL";
             // 
             // btnRemoveFromCart
             // 
@@ -283,15 +258,26 @@ namespace MagazaOtomasyonu.Forms
             btnRemoveFromCart.UseVisualStyleBackColor = true;
             btnRemoveFromCart.Click += btnRemoveFromCart_Click;
             // 
-            // btnAddToCart
+            // dgvCart
             // 
-            btnAddToCart.Location = new Point(20, 385);
-            btnAddToCart.Name = "btnAddToCart";
-            btnAddToCart.Size = new Size(320, 44);
-            btnAddToCart.TabIndex = 4;
-            btnAddToCart.Text = "Sepete Ekle";
-            btnAddToCart.UseVisualStyleBackColor = true;
-            btnAddToCart.Click += btnAddToCart_Click;
+            dgvCart.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgvCart.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvCart.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvCart.Location = new Point(16, 55);
+            dgvCart.Name = "dgvCart";
+            dgvCart.RowHeadersWidth = 51;
+            dgvCart.Size = new Size(720, 370);
+            dgvCart.TabIndex = 5;
+            // 
+            // lblCartTitle
+            // 
+            lblCartTitle.AutoSize = true;
+            lblCartTitle.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold);
+            lblCartTitle.Location = new Point(16, 14);
+            lblCartTitle.Name = "lblCartTitle";
+            lblCartTitle.Size = new Size(70, 30);
+            lblCartTitle.TabIndex = 10;
+            lblCartTitle.Text = "Sepet";
             // 
             // SalesForm
             // 
@@ -304,15 +290,14 @@ namespace MagazaOtomasyonu.Forms
             MinimumSize = new Size(1000, 620);
             Name = "SalesForm";
             Text = "Satış İşlemleri";
-            pnlCart.ResumeLayout(false);
-            pnlCart.PerformLayout();
-            pnlEditor.ResumeLayout(false);
-            pnlEditor.PerformLayout();
             pnlHeader.ResumeLayout(false);
             pnlHeader.PerformLayout();
+            pnlEditor.ResumeLayout(false);
+            pnlEditor.PerformLayout();
+            pnlCart.ResumeLayout(false);
+            pnlCart.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvCart).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
