@@ -49,6 +49,8 @@ Server=localhost;Database=MagazaOptimizasyonu;Trusted_Connection=True;TrustServe
 
 Scriptte roller ve ödeme türleri için temel kayıtlar bulunur. Login ekranını kullanabilmek için veritabanında aktif bir kullanıcı kaydı bulunmalıdır.
 
+Ekranları örnek verilerle denemek için isteğe bağlı olarak `MagazaOtomasyonu/Database/DemoData.sql` dosyasını çalıştırabilirsiniz. Bu script mevcut kayıtları silmez; yalnızca eksik demo kayıtlarını ekler. Demo giriş bilgileri `demo.admin` veya `demo.cashier` kullanıcı adı ve `Demo123!` şifresidir. Bu hesaplar sadece test içindir.
+
 ### Uygulamayı çalıştırma
 
 1. `MagazaOtomasyonu.slnx` dosyasını Visual Studio ile açın.
@@ -68,7 +70,7 @@ dotnet build
 MagazaOtomasyonu/
 ├── Assets/          Uygulama ikonu
 ├── DataAccess/      Veritabanı bağlantısı
-├── Database/        SQL Server kurulum scripti
+├── Database/        SQL Server kurulum ve demo veri scriptleri
 ├── Forms/           Windows Forms ekranları
 ├── Helpers/         Oturum ve arayüz yardımcıları
 ├── Models/          Model klasörü
@@ -129,6 +131,8 @@ Server=localhost;Database=MagazaOptimizasyonu;Trusted_Connection=True;TrustServe
 
 The script adds the basic roles and payment types. An active user record must exist in the database before the login screen can be used.
 
+To try the screens with sample data, you can optionally run `MagazaOtomasyonu/Database/DemoData.sql`. It does not delete existing records; it only adds missing demo records. The demo login accounts are `demo.admin` and `demo.cashier`, both with the password `Demo123!`. These accounts are for testing only.
+
 ### Running the application
 
 1. Open `MagazaOtomasyonu.slnx` with Visual Studio.
@@ -148,7 +152,7 @@ dotnet build
 MagazaOtomasyonu/
 ├── Assets/          Application icon
 ├── DataAccess/      Database connection
-├── Database/        SQL Server setup script
+├── Database/        SQL Server setup and demo data scripts
 ├── Forms/           Windows Forms screens
 ├── Helpers/         Session and UI helpers
 ├── Models/          Model folder
